@@ -25,8 +25,8 @@ Jekyll::Hooks.register :site, :after_init do |site|
       # verify if the file is of the correct type
       if file_name.end_with?(*file_types)
         # fix the url if it is not an absolute url
-        unless url.start_with?('https://')
-          url = URI.join(url, url).to_s
+        unless url.start_with?('https://', 'http://')
+          url = URI.join(config['url'], url).to_s
         end
 
         # download the file
