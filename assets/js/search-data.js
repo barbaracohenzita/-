@@ -79,7 +79,14 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/al-folio/blog/";
               },
-            },{id: "post-a-post-with-image-galleries",
+            },{id: "nav-guess-the-number-game",
+          title: "Guess the Number Game",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/al-folio/game/";
+          },
+        },{id: "post-a-post-with-image-galleries",
       
         title: "a post with image galleries",
       
