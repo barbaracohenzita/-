@@ -1,16 +1,36 @@
 ---
 layout: default
-title: "Guess the Number Game"
+title: "Task Board"
 permalink: /game/
 nav: true
 nav_order: 99
 ---
 
-<h1>Guess the Number Game</h1>
-<p>Try to guess the random number between 1 and 100.</p>
-<input type="number" id="guessInput" min="1" max="100" />
-<button onclick="makeGuess()">Guess</button>
-<p id="result"></p>
+<link rel="stylesheet" href="{{ '/assets/css/task-board.css' | relative_url }}" />
 
-<script src="{{ '/assets/js/guess-the-number.js' | relative_url }}"></script>
+<div class="task-board" id="taskBoard">
+  <header class="task-board__header">
+    <h1>Task Board</h1>
+    <div class="task-board__controls">
+      <button id="newTaskBtn" type="button" title="Shortcut: N">+ New Task</button>
+      <button id="darkModeBtn" type="button">Toggle dark mode</button>
+    </div>
+  </header>
 
+  <div class="task-board__toolbar">
+    <input id="searchInput" type="text" placeholder="Search tasks, notes, tags..." />
+    <div class="progress-wrap">
+      <span id="progressLabel">0% complete</span>
+      <div class="progress-track"><div id="progressFill" class="progress-fill"></div></div>
+    </div>
+  </div>
+
+  <ul id="taskList" class="task-list" aria-label="Task list"></ul>
+</div>
+
+<div id="undoToast" class="undo-toast" role="status" aria-live="polite">
+  <span>Task deleted.</span>
+  <button id="undoDeleteBtn" type="button">Undo</button>
+</div>
+
+<script src="{{ '/assets/js/task-board.js' | relative_url }}"></script>
